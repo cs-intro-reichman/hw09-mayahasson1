@@ -148,4 +148,4 @@ char getRandomChar(List probs) {
     lm.train(fileName); 
     System.out.println(lm.generate(initialText, generatedTextLength)); 
 }
-    }
+}
