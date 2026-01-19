@@ -104,9 +104,12 @@ char getRandomChar(List probs) {
     if (initialText.length() < windowLength) {
         return initialText; 
     }
+
     String generatedText = initialText;
     String window = initialText.substring(initialText.length() - windowLength);
-    while (generatedText.length() < textLength) {
+    int targetLength = initialText.length() + textLength;
+
+    while (generatedText.length() < targetLength) {
         List probs = CharDataMap.get(window);
         if (probs == null) {
             return generatedText;
@@ -115,8 +118,10 @@ char getRandomChar(List probs) {
         generatedText += nextChar;
         window = generatedText.substring(generatedText.length() - windowLength);
     }
+
     return generatedText; 
 }
+
  
 
     /** Returns a string representing the map of this language model. */
